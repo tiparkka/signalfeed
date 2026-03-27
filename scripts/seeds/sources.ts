@@ -19,7 +19,7 @@ const sources = [
   {
     name: "Mikrobitti",
     url: "https://www.mikrobitti.fi",
-    feed_url: "https://www.mikrobitti.fi/feed/rss",
+    feed_url: "https://www.mikrobitti.fi/api/feed/v2/rss",
     category: "tech",
     language: "fi",
   },
@@ -31,23 +31,23 @@ const sources = [
     language: "fi",
   },
   {
-    name: "Helsinki Times – Tech",
+    name: "Helsinki Times",
     url: "https://www.helsinkitimes.fi",
-    feed_url: "https://www.helsinkitimes.fi/feed",
+    feed_url: "https://www.helsinkitimes.fi/index.php?format=feed&type=rss",
     category: "tech",
     language: "fi",
   },
   {
-    name: "Kauppalehti Tech",
-    url: "https://www.kauppalehti.fi/uutiset/teknologia",
-    feed_url: "https://www.kauppalehti.fi/feed/rss/teknologia",
+    name: "Kauppalehti",
+    url: "https://www.kauppalehti.fi",
+    feed_url: "https://www.kauppalehti.fi/rss",
     category: "tech",
     language: "fi",
   },
   {
-    name: "Yle Tiede",
-    url: "https://yle.fi/t/18-223416",
-    feed_url: "https://feeds.yle.fi/uutiset/v1/recent.rss?publisherIds=YLE_TIEDE",
+    name: "Yle Uutiset – Tiede ja tekniikka",
+    url: "https://yle.fi/uutiset/osasto/tiede",
+    feed_url: "https://feeds.yle.fi/uutiset/v1/recent.rss?categories=tiede",
     category: "tech",
     language: "fi",
   },
@@ -61,10 +61,10 @@ const sources = [
     language: "en",
   },
   {
-    name: "The Verge – AI",
-    url: "https://www.theverge.com/ai-artificial-intelligence",
-    feed_url: "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml",
-    category: "ai",
+    name: "The Verge",
+    url: "https://www.theverge.com",
+    feed_url: "https://www.theverge.com/rss/index.xml",
+    category: "tech",
     language: "en",
   },
   {
@@ -138,16 +138,16 @@ const sources = [
     language: "en",
   },
   {
-    name: "Anthropic Blog",
-    url: "https://www.anthropic.com/blog",
-    feed_url: "https://www.anthropic.com/rss.xml",
+    name: "Anthropic News",
+    url: "https://www.anthropic.com/news",
+    feed_url: "https://www.anthropic.com/feed.xml",
     category: "ai",
     language: "en",
   },
   {
-    name: "Papers With Code",
-    url: "https://paperswithcode.com",
-    feed_url: "https://paperswithcode.com/latest/rss",
+    name: "Towards Data Science",
+    url: "https://towardsdatascience.com",
+    feed_url: "https://towardsdatascience.com/feed",
     category: "ai",
     language: "en",
   },
@@ -161,7 +161,7 @@ const sources = [
   {
     name: "The Batch (deeplearning.ai)",
     url: "https://www.deeplearning.ai/the-batch",
-    feed_url: "https://www.deeplearning.ai/the-batch/feed/",
+    feed_url: "https://www.deeplearning.ai/the-batch/rss/",
     category: "ai",
     language: "en",
   },
@@ -187,10 +187,10 @@ const sources = [
     language: "en",
   },
   {
-    name: "Semafor – Tech",
-    url: "https://www.semafor.com/tech",
-    feed_url: "https://www.semafor.com/feed/tech",
-    category: "tech",
+    name: "The Gradient",
+    url: "https://thegradient.pub",
+    feed_url: "https://thegradient.pub/rss/",
+    category: "ai",
     language: "en",
   },
   {
@@ -202,19 +202,43 @@ const sources = [
   },
 ];
 
+// Vanhat feed-URL:t jotka pitää poistaa / deaktivoida
+const deprecatedFeeds = [
+  "https://www.mikrobitti.fi/feed/rss",
+  "https://www.helsinkitimes.fi/feed",
+  "https://www.kauppalehti.fi/feed/rss/teknologia",
+  "https://feeds.yle.fi/uutiset/v1/recent.rss?publisherIds=YLE_TIEDE",
+  "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml",
+  "https://www.anthropic.com/rss.xml",
+  "https://paperswithcode.com/latest/rss",
+  "https://www.deeplearning.ai/the-batch/feed/",
+  "https://www.semafor.com/feed/tech",
+];
+
 async function seedSources() {
-  console.log("Lisätään RSS-lähteet...");
+  console.log("Päivitetään RSS-lähteet...");
 
-  const { data, error } = await supabase
-    .from("sources")
-    .upsert(sources, { onConflict: "feed_url", ignoreDuplicates: true })
-    .select("id");
+  // Deaktivoi vanhat rikkinäiset feedit
+  for (const feedUrl of deprecatedFeeds) {
+    await supabase
+      .from("sources")
+      .update({ active: false })
+      .eq("feed_url", feedUrl);
+  }
+  console.log(`Deaktivoitiin ${deprecatedFeeds.length} vanhaa feediä.`);
 
-  if (error) {
-    throw new Error(`Lähteiden lisäys epäonnistui: ${error.message}`);
+  // Lisää/päivitä uudet lähteet
+  for (const source of sources) {
+    const { error } = await supabase
+      .from("sources")
+      .upsert(source, { onConflict: "url" });
+
+    if (error) {
+      console.error(`  Virhe: ${source.name}: ${error.message}`);
+    }
   }
 
-  console.log(`Valmis! ${data?.length || 0} lähdettä lisätty/päivitetty.`);
+  console.log(`Valmis! ${sources.length} lähdettä lisätty/päivitetty.`);
 }
 
 seedSources().catch(console.error);
