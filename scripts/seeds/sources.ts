@@ -37,6 +37,20 @@ const sources = [
     category: "tech",
     language: "fi",
   },
+  {
+    name: "Kauppalehti Tech",
+    url: "https://www.kauppalehti.fi/uutiset/teknologia",
+    feed_url: "https://www.kauppalehti.fi/feed/rss/teknologia",
+    category: "tech",
+    language: "fi",
+  },
+  {
+    name: "Yle Tiede",
+    url: "https://yle.fi/t/18-223416",
+    feed_url: "https://feeds.yle.fi/uutiset/v1/recent.rss?publisherIds=YLE_TIEDE",
+    category: "tech",
+    language: "fi",
+  },
 
   // Kansainväliset AI/tech-mediat
   {
@@ -177,6 +191,13 @@ const sources = [
     url: "https://www.semafor.com/tech",
     feed_url: "https://www.semafor.com/feed/tech",
     category: "tech",
+    language: "en",
+  },
+  {
+    name: "arXiv cs.AI",
+    url: "https://arxiv.org/list/cs.AI/recent",
+    feed_url: "http://arxiv.org/rss/cs.AI",
+    category: "ai",
     language: "en",
   },
 ];

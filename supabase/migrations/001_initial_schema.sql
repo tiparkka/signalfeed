@@ -21,6 +21,7 @@ create table if not exists articles (
   author text,
   published_at timestamptz,
   content text,
+  content_snippet text,
   fetched_at timestamptz not null default now()
 );
 
@@ -32,7 +33,8 @@ create table if not exists curated_articles (
   article_id uuid not null references articles(id) on delete cascade unique,
   relevance_score integer not null check (relevance_score between 1 and 10),
   reasoning text not null,
-  topics text[] not null default '{}',
+  tags text[] not null default '{}',
+  is_featured boolean not null default false,
   summary_fi text,
   curated_at timestamptz not null default now()
 );
@@ -41,22 +43,19 @@ create index idx_curated_relevance on curated_articles(relevance_score desc);
 
 create table if not exists digests (
   id uuid primary key default gen_random_uuid(),
+  digest_date date not null unique,
   title text not null,
-  content_html text not null,
-  content_text text not null,
+  intro_text text,
+  article_ids uuid[] not null default '{}',
   article_count integer not null,
-  sent_at timestamptz,
   created_at timestamptz not null default now()
 );
 
 create table if not exists user_preferences (
   id uuid primary key default gen_random_uuid(),
-  email text not null unique,
-  name text,
-  min_relevance_score integer not null default 7,
+  min_relevance_score integer not null default 6,
   categories text[] not null default '{tech,ai}',
   language text not null default 'fi',
-  active boolean not null default true,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );

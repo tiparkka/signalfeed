@@ -40,7 +40,8 @@ async function fetchAllFeeds() {
         url: item.link || item.guid || "",
         author: item.creator || item.author || null,
         published_at: item.pubDate ? new Date(item.pubDate).toISOString() : null,
-        content: item.contentSnippet || item.content || null,
+        content: item.content || item.contentSnippet || null,
+        content_snippet: (item.contentSnippet || item.content || "").slice(0, 500) || null,
       }));
 
       // Suodata pois artikkelit joilla ei ole URL:ia

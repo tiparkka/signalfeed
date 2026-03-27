@@ -7,14 +7,14 @@
     "fetch": "tsx scripts/fetch-rss.ts",
     "curate": "tsx scripts/curate.ts",
     "summarize": "tsx scripts/summarize.ts",
+    "generate-digest": "tsx scripts/generate-digest.ts",
     "seed": "tsx scripts/seeds/sources.ts",
-    "digest": "tsx scripts/fetch-rss.ts && tsx scripts/curate.ts && tsx scripts/summarize.ts"
+    "digest": "tsx scripts/fetch-rss.ts && tsx scripts/curate.ts && tsx scripts/summarize.ts && tsx scripts/generate-digest.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
     "@supabase/supabase-js": "^2.49.0",
     "dotenv": "^16.4.7",
-    "resend": "^4.1.0",
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {

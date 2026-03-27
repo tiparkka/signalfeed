@@ -4,13 +4,13 @@ import { supabase } from "./lib/supabase.js";
 const anthropic = new Anthropic();
 
 const BATCH_SIZE = 10;
-const MIN_SCORE = 5;
+const MIN_SCORE = 6;
 
 interface CurationResult {
   title: string;
   score: number;
   reasoning: string;
-  topics: string[];
+  tags: string[];
 }
 
 async function curateArticles() {
@@ -56,9 +56,15 @@ async function curateArticles() {
         messages: [
           {
             role: "user",
-            content: `Olet AI/tech-uutiskuraattori. Pisteytä seuraavat artikkelit asteikolla 1-10 niiden relevanssin mukaan.
+            content: `Olet suomalainen teknologiatoimittaja. Arvioi seuraavat artikkelit asteikolla 1-10 suomalaisen AI/tech-ammattilaisen näkökulmasta.
 
 Kriteerit:
+- Uutuusarvo: onko tämä tuore ja uusi tieto?
+- Vaikuttavuus: kuinka merkittävä vaikutus alalla?
+- Suomi-relevanssi: liittyykö Suomeen tai suomalaisiin toimijoihin?
+- Käytännöllisyys: voiko lukija hyödyntää tätä työssään?
+
+Pisteytysohje:
 - AI, koneoppiminen, LLM-kehitys: 8-10
 - Merkittävät tech-uutiset (startup-rahoitus, tuotelanseeraukset): 7-9
 - Suomen tech-ekosysteemi: +1 bonus
@@ -73,7 +79,7 @@ Vastaa JSON-taulukkona. Jokainen elementti:
   "title": "artikkelin otsikko",
   "score": numero 1-10,
   "reasoning": "lyhyt perustelu",
-  "topics": ["aihe1", "aihe2"]
+  "tags": ["tagi1", "tagi2"]
 }
 
 Vastaa VAIN JSON-taulukolla, ei muuta tekstiä.`,
@@ -107,7 +113,7 @@ Vastaa VAIN JSON-taulukolla, ei muuta tekstiä.`,
             article_id: article.id,
             relevance_score: Math.min(10, Math.max(1, Math.round(result.score))),
             reasoning: result.reasoning || "",
-            topics: result.topics || [],
+            tags: result.tags || [],
           }, { onConflict: "article_id" });
 
         if (upsertError) {
