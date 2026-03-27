@@ -19,13 +19,24 @@ async function curateArticles() {
   // Hae artikkelit joita ei ole vielä kuratoitu (viimeiset 24h)
   const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
 
-  const { data: articles, error } = await supabase
+  // Hae jo kuratoidut article_id:t
+  const { data: curated } = await supabase
+    .from("curated_articles")
+    .select("article_id");
+  const curatedIds = (curated || []).map((c) => c.article_id);
+
+  let query = supabase
     .from("articles")
     .select("id, title, url, content, source_id, sources(name, category)")
     .gte("fetched_at", oneDayAgo)
-    .not("id", "in", `(select article_id from curated_articles)`)
     .order("fetched_at", { ascending: false })
     .limit(50);
+
+  if (curatedIds.length > 0) {
+    query = query.not("id", "in", `(${curatedIds.join(",")})`);
+  }
+
+  const { data: articles, error } = await query;
 
   if (error) {
     throw new Error(`Artikkeleiden haku epäonnistui: ${error.message}`);
