@@ -19,39 +19,37 @@ async function curateArticles() {
   // Hae artikkelit joita ei ole vielä kuratoitu (viimeiset 24h)
   const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
 
-  // Hae jo kuratoidut article_id:t
-  const { data: curated } = await supabase
-    .from("curated_articles")
-    .select("article_id");
-  const curatedIds = (curated || []).map((c) => c.article_id);
-
-  let query = supabase
+  // Käytä left join -lähestymistapaa: hae artikkelit ja tarkista onko curated_articles-rivi
+  const { data: articles, error } = await supabase
     .from("articles")
-    .select("id, title, url, content, source_id, sources(name, category)")
+    .select("id, title, url, content, source_id, sources(name, category), curated_articles(id)")
     .gte("fetched_at", oneDayAgo)
     .order("fetched_at", { ascending: false })
     .limit(50);
-
-  if (curatedIds.length > 0) {
-    query = query.not("id", "in", `(${curatedIds.join(",")})`);
-  }
-
-  const { data: articles, error } = await query;
 
   if (error) {
     throw new Error(`Artikkeleiden haku epäonnistui: ${error.message}`);
   }
 
-  if (!articles || articles.length === 0) {
+  // Suodata pois jo kuratoidut
+  const uncurated = (articles || []).filter(
+    (a: any) => !a.curated_articles || a.curated_articles.length === 0
+  );
+
+  if (error) {
+    throw new Error(`Artikkeleiden haku epäonnistui: ${error.message}`);
+  }
+
+  if (uncurated.length === 0) {
     console.log("Ei uusia artikkeleita pisteytettäväksi.");
     return;
   }
 
-  console.log(`Pisteytetään ${articles.length} artikkelia...`);
+  console.log(`Pisteytetään ${uncurated.length} artikkelia...`);
 
   // Käsittele erissä
-  for (let i = 0; i < articles.length; i += BATCH_SIZE) {
-    const batch = articles.slice(i, i + BATCH_SIZE);
+  for (let i = 0; i < uncurated.length; i += BATCH_SIZE) {
+    const batch = uncurated.slice(i, i + BATCH_SIZE);
 
     const articleList = batch
       .map(
