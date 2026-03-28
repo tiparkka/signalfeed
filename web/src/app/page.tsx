@@ -76,14 +76,14 @@ export default async function Home() {
     ? (articles.reduce((sum: number, a: any) => sum + a.relevance_score, 0) / articles.length).toFixed(1)
     : "0";
 
-  const topTags = articles
+  const topTags: Record<string, number> = articles
     .flatMap((a: any) => a.tags || [])
     .reduce((acc: Record<string, number>, tag: string) => {
       acc[tag] = (acc[tag] || 0) + 1;
       return acc;
-    }, {});
+    }, {} as Record<string, number>);
   const trendingTags = Object.entries(topTags)
-    .sort((a, b) => b[1] - a[1])
+    .sort((a, b) => (b[1] as number) - (a[1] as number))
     .slice(0, 6)
     .map(([tag]) => tag);
 
