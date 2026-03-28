@@ -148,4 +148,4 @@ Vastaa VAIN JSON-taulukolla, ei muuta tekstiä.`,
   console.log(`\nValmis! ${count || 0} relevanttia artikkelia (score >= ${MIN_SCORE}).`);
 }
 
-curateArticles().catch(console.error);
+curateArticles().then(() => process.exit(0)).catch((err) => { console.error(err); process.exit(1); });

@@ -118,4 +118,4 @@ Vastaa VAIN JSON-objektilla, ei muuta tekstiä.`,
   console.log(`\nValmis! ${summarized} artikkelia tiivistetty suomeksi.`);
 }
 
-summarizeArticles().catch(console.error);
+summarizeArticles().then(() => process.exit(0)).catch((err) => { console.error(err); process.exit(1); });

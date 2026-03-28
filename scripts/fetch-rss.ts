@@ -74,4 +74,4 @@ async function fetchAllFeeds() {
   console.log(`\nValmis! Yhteensä ${totalNew} uutta artikkelia tallennettu.`);
 }
 
-fetchAllFeeds().catch(console.error);
+fetchAllFeeds().then(() => process.exit(0)).catch((err) => { console.error(err); process.exit(1); });
