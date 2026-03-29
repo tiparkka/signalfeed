@@ -503,6 +503,179 @@ const sources = [
     category: "urheilu",
     language: "en",
   },
+
+  // Krypto & DeFi – Suomalaiset
+  {
+    name: "Bittiraha",
+    url: "https://bittiraha.fi",
+    feed_url: "https://bittiraha.fi/feed/",
+    category: "krypto",
+    language: "fi",
+  },
+
+  // Krypto & DeFi – Kansainväliset
+  {
+    name: "CoinDesk",
+    url: "https://www.coindesk.com",
+    feed_url: "https://www.coindesk.com/arc/outboundfeeds/rss/",
+    category: "krypto",
+    language: "en",
+  },
+  {
+    name: "The Block",
+    url: "https://www.theblock.co",
+    feed_url: "https://www.theblock.co/rss.xml",
+    category: "krypto",
+    language: "en",
+  },
+  {
+    name: "CoinTelegraph",
+    url: "https://cointelegraph.com",
+    feed_url: "https://cointelegraph.com/rss",
+    category: "krypto",
+    language: "en",
+  },
+  {
+    name: "Decrypt",
+    url: "https://decrypt.co",
+    feed_url: "https://decrypt.co/feed",
+    category: "krypto",
+    language: "en",
+  },
+  {
+    name: "Bankless",
+    url: "https://www.bankless.com",
+    feed_url: "https://www.bankless.com/rss.xml",
+    category: "krypto",
+    language: "en",
+  },
+  {
+    name: "DeFi Pulse",
+    url: "https://www.defipulse.com",
+    feed_url: "https://www.defipulse.com/blog/feed",
+    category: "krypto",
+    language: "en",
+  },
+  {
+    name: "r/CryptoCurrency",
+    url: "https://www.reddit.com/r/CryptoCurrency/",
+    feed_url: "https://www.reddit.com/r/CryptoCurrency/hot.rss",
+    category: "krypto",
+    language: "en",
+  },
+
+  // Sijoittaminen & talous – Suomalaiset
+  {
+    name: "Kauppalehti – Pörssi",
+    url: "https://www.kauppalehti.fi/porssi",
+    feed_url: "https://feeds.kauppalehti.fi/rss/main",
+    category: "sijoittaminen",
+    language: "fi",
+  },
+  {
+    name: "Nordnet Blogi",
+    url: "https://www.nordnet.fi/blogi",
+    feed_url: "https://www.nordnet.fi/blogi/feed/",
+    category: "sijoittaminen",
+    language: "fi",
+  },
+  {
+    name: "Sijoitustieto",
+    url: "https://www.sijoitustieto.fi",
+    feed_url: "https://www.sijoitustieto.fi/feed",
+    category: "sijoittaminen",
+    language: "fi",
+  },
+  {
+    name: "Inderes",
+    url: "https://www.inderes.fi",
+    feed_url: "https://www.inderes.fi/fi/rss.xml",
+    category: "sijoittaminen",
+    language: "fi",
+  },
+
+  // Sijoittaminen & talous – Kansainväliset
+  {
+    name: "Bloomberg Markets",
+    url: "https://www.bloomberg.com/markets",
+    feed_url: "https://feeds.bloomberg.com/markets/news.rss",
+    category: "sijoittaminen",
+    language: "en",
+  },
+  {
+    name: "Reuters Business",
+    url: "https://www.reuters.com/business/",
+    feed_url: "https://www.reuters.com/arc/outboundfeeds/v3/all/rss.xml?outputType=xml",
+    category: "sijoittaminen",
+    language: "en",
+  },
+  {
+    name: "Financial Times",
+    url: "https://www.ft.com",
+    feed_url: "https://www.ft.com/rss/home",
+    category: "sijoittaminen",
+    language: "en",
+  },
+  {
+    name: "Seeking Alpha",
+    url: "https://seekingalpha.com",
+    feed_url: "https://seekingalpha.com/feed.xml",
+    category: "sijoittaminen",
+    language: "en",
+  },
+  {
+    name: "r/Investing",
+    url: "https://www.reddit.com/r/investing/",
+    feed_url: "https://www.reddit.com/r/investing/hot.rss",
+    category: "sijoittaminen",
+    language: "en",
+  },
+
+  // Rakentaminen & kiinteistö – Suomalaiset
+  {
+    name: "Rakennuslehti",
+    url: "https://www.rakennuslehti.fi",
+    feed_url: "https://www.rakennuslehti.fi/feed/",
+    category: "rakentaminen",
+    language: "fi",
+  },
+  {
+    name: "Rakennusmaailma",
+    url: "https://rakennusmaailma.fi",
+    feed_url: "https://rakennusmaailma.fi/feed/",
+    category: "rakentaminen",
+    language: "fi",
+  },
+  {
+    name: "Kiinteistölehti",
+    url: "https://www.kiinteistolehti.fi",
+    feed_url: "https://www.kiinteistolehti.fi/feed/",
+    category: "rakentaminen",
+    language: "fi",
+  },
+  {
+    name: "Rakentaja.fi",
+    url: "https://www.rakentaja.fi",
+    feed_url: "https://www.rakentaja.fi/rss/artikkelit.xml",
+    category: "rakentaminen",
+    language: "fi",
+  },
+
+  // Rakentaminen – Kansainväliset
+  {
+    name: "Construction Dive",
+    url: "https://www.constructiondive.com",
+    feed_url: "https://www.constructiondive.com/feeds/news/",
+    category: "rakentaminen",
+    language: "en",
+  },
+  {
+    name: "Building Design + Construction",
+    url: "https://www.bdcnetwork.com",
+    feed_url: "https://www.bdcnetwork.com/rss.xml",
+    category: "rakentaminen",
+    language: "en",
+  },
 ];
 
 // Vanhat feed-URL:t jotka pitää poistaa / deaktivoida

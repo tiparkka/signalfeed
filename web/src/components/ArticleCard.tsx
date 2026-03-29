@@ -70,6 +70,12 @@ function getTopicImage(tags: string[]): string {
     return "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=120&h=80&fit=crop&q=60";
   if (tagStr.includes("urheilu") || tagStr.includes("sport") || tagStr.includes("liiga"))
     return "https://images.unsplash.com/photo-1461896836934-bd45ba2724e7?w=120&h=80&fit=crop&q=60";
+  if (tagStr.includes("bitcoin") || tagStr.includes("krypto") || tagStr.includes("ethereum") || tagStr.includes("defi"))
+    return "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=120&h=80&fit=crop&q=60";
+  if (tagStr.includes("sijoitt") || tagStr.includes("pörssi") || tagStr.includes("osake") || tagStr.includes("market"))
+    return "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=120&h=80&fit=crop&q=60";
+  if (tagStr.includes("rakent") || tagStr.includes("kiinteistö") || tagStr.includes("construction") || tagStr.includes("asunto"))
+    return "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=120&h=80&fit=crop&q=60";
   if (tagStr.includes("turvallisuus") || tagStr.includes("safety") || tagStr.includes("jailbreak"))
     return "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=120&h=80&fit=crop&q=60";
   if (tagStr.includes("llm") || tagStr.includes("kielimall"))

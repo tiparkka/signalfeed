@@ -89,6 +89,27 @@ Urheilu:
 - Muu kansainvälinen urheilu: 5-7
 - Yleinen urheiluuutinen ilman Suomi-kytköstä: 4-6
 
+Krypto & DeFi:
+- Bitcoin, Ethereum merkittävät hintaliikkeet ja päivitykset: 8-10
+- DeFi-protokollat ja uudet innovaatiot: 7-9
+- Suomalaiset krypto-toimijat: 8-10
+- Sääntely ja verotus (erityisesti EU/Suomi): 8-10
+- Altcoin-uutiset ja spekulaatio: 5-7
+
+Sijoittaminen & talous:
+- Helsingin pörssi ja suomalaiset yhtiöt: 9-10
+- Merkittävät globaalit markkinaliikkeet: 7-9
+- Suomalainen sijoitusanalyysi (Inderes, Nordnet): 8-10
+- Henkilökohtainen talous ja säästäminen: 7-8
+- Yleinen talousanalyysi: 5-7
+
+Rakentaminen & kiinteistö:
+- Suomen rakennusala, uudet hankkeet: 9-10
+- Asuntomarkkina ja hintakehitys Suomessa: 8-10
+- Rakennusmääräykset ja sääntely: 7-9
+- Kansainväliset rakennusinnovaatiot: 6-8
+- Yleinen rakentamisuutinen: 5-7
+
 Kaikki kategoriat:
 - Suomi-relevanssi: +1 bonus
 - Ei-relevantti tai clickbait: 1-4

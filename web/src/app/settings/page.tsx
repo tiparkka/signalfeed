@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const STORAGE_KEY = "signalfeed_prefs";
 
-const CATEGORIES = ["AI", "Tech", "Urheilu"] as const;
+const CATEGORIES = ["AI", "Tech", "Urheilu", "Krypto", "Sijoittaminen", "Rakentaminen"] as const;
 const LANGUAGES = [
   { value: "all", label: "Kaikki" },
   { value: "fi", label: "Suomi" },
