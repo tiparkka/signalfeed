@@ -490,9 +490,9 @@ const sources = [
     language: "en",
   },
   {
-    name: "NHL News",
-    url: "https://www.nhl.com/news",
-    feed_url: "https://www.nhl.com/rss/news.xml",
+    name: "NHL News (ESPN)",
+    url: "https://www.espn.com/nhl/",
+    feed_url: "https://www.espn.com/espn/rss/nhl/news",
     category: "urheilu",
     language: "en",
   },
@@ -523,6 +523,7 @@ const deprecatedFeeds = [
   "https://www.semafor.com/feed/tech",
   "https://www.tekniikkatalous.fi/api/feed/v2/rss",
   "https://www.tivi.fi/api/feed/v2/rss",
+  "https://www.nhl.com/rss/news.xml",
 ];
 
 async function seedSources() {
