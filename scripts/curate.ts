@@ -81,11 +81,13 @@ AI/Tech:
 - Yleinen teknologia: 5-7
 
 Urheilu:
-- Suomalaisten urheilijoiden/joukkueiden tulokset ja uutiset: 8-10
-- Merkittävät kansainväliset urheilutapahtumat (F1, NHL, jalkapallo): 7-9
-- Suomen liigat ja sarjat: 7-9
-- Siirtomarkkinat ja sopimukset: 6-8
-- Yleinen urheiluuutinen: 5-7
+- Suomalaisten urheilijoiden/joukkueiden tulokset ja uutiset: 9-10
+- Suomen liigat ja sarjat (Liiga, Veikkausliiga, koripallo): 8-10
+- NHL-uutiset (erityisesti suomalaispelaajat): 8-10
+- NHL yleiset uutiset, tulokset ja siirrot: 7-9
+- F1 (erityisesti suomalaiset kuljettajat): 7-9
+- Muu kansainvälinen urheilu: 5-7
+- Yleinen urheiluuutinen ilman Suomi-kytköstä: 4-6
 
 Kaikki kategoriat:
 - Suomi-relevanssi: +1 bonus
