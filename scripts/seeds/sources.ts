@@ -454,12 +454,34 @@ async function seedSources() {
 
   // Lisää/päivitä uudet lähteet
   for (const source of sources) {
-    const { error } = await supabase
+    // Yritä ensin päivittää olemassa oleva (URL:n perusteella)
+    const { data: existing } = await supabase
       .from("sources")
-      .upsert(source, { onConflict: "url" });
+      .select("id")
+      .eq("url", source.url)
+      .limit(1);
 
-    if (error) {
-      console.error(`  Virhe: ${source.name}: ${error.message}`);
+    if (existing && existing.length > 0) {
+      // Päivitä olemassa oleva ja aktivoi
+      await supabase
+        .from("sources")
+        .update({ ...source, active: true })
+        .eq("id", existing[0].id);
+    } else {
+      // Lisää uusi
+      const { error } = await supabase
+        .from("sources")
+        .insert({ ...source, active: true });
+
+      if (error && error.code === "23505") {
+        // Duplikaatti feed_url — päivitä sen kautta
+        await supabase
+          .from("sources")
+          .update({ ...source, active: true })
+          .eq("feed_url", source.feed_url);
+      } else if (error) {
+        console.error(`  Virhe: ${source.name}: ${error.message}`);
+      }
     }
   }
 
