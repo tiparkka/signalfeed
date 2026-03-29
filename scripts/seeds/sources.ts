@@ -324,6 +324,91 @@ const sources = [
     language: "fi",
   },
 
+  // AI deep dive – tutkimus & newsletterit
+  {
+    name: "Semantic Scholar – AI",
+    url: "https://www.semanticscholar.org/search?q=artificial+intelligence&sort=pub-date",
+    feed_url: "https://api.semanticscholar.org/graph/v1/paper/search/rss?query=large+language+model&fields=title,url,authors",
+    category: "ai",
+    language: "en",
+  },
+  {
+    name: "The Neuron",
+    url: "https://www.theneurondaily.com",
+    feed_url: "https://www.theneurondaily.com/feed",
+    category: "ai",
+    language: "en",
+  },
+  {
+    name: "Ahead of AI (Sebastian Raschka)",
+    url: "https://magazine.sebastianraschka.com",
+    feed_url: "https://magazine.sebastianraschka.com/feed",
+    category: "ai",
+    language: "en",
+  },
+  {
+    name: "AI Breakfast",
+    url: "https://aibreakfast.beehiiv.com",
+    feed_url: "https://rss.beehiiv.com/feeds/GrzmFEhRm1.xml",
+    category: "ai",
+    language: "en",
+  },
+  {
+    name: "Latent Space",
+    url: "https://www.latent.space",
+    feed_url: "https://www.latent.space/feed",
+    category: "ai",
+    language: "en",
+  },
+
+  // AI – Engineering-blogit
+  {
+    name: "Spotify Engineering",
+    url: "https://engineering.atspotify.com",
+    feed_url: "https://engineering.atspotify.com/feed/",
+    category: "ai",
+    language: "en",
+  },
+  {
+    name: "Uber Engineering",
+    url: "https://www.uber.com/en-FI/blog/engineering/",
+    feed_url: "https://www.uber.com/blog/engineering/rss/",
+    category: "ai",
+    language: "en",
+  },
+  {
+    name: "LinkedIn Engineering",
+    url: "https://engineering.linkedin.com",
+    feed_url: "https://engineering.linkedin.com/blog.rss.html",
+    category: "ai",
+    language: "en",
+  },
+
+  // AI – Reddit-yhteisöt
+  {
+    name: "r/MachineLearning",
+    url: "https://www.reddit.com/r/MachineLearning/",
+    feed_url: "https://www.reddit.com/r/MachineLearning/hot.rss",
+    category: "ai",
+    language: "en",
+  },
+  {
+    name: "r/LocalLLaMA",
+    url: "https://www.reddit.com/r/LocalLLaMA/",
+    feed_url: "https://www.reddit.com/r/LocalLLaMA/hot.rss",
+    category: "ai",
+    language: "en",
+  },
+
+  // AI – Podcastit & videot
+  {
+    name: "Lex Fridman Podcast",
+    url: "https://lexfridman.com/podcast/",
+    feed_url: "https://lexfridman.com/feed/podcast/",
+    category: "ai",
+    language: "en",
+  },
+
   // Urheilu – Suomalaiset
   {
     name: "Yle Urheilu",
