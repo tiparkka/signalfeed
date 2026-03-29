@@ -56,7 +56,7 @@ async function summarizeArticles() {
         messages: [
           {
             role: "user",
-            content: `Kirjoita jokaisesta artikkelista 2-3 lauseen suomenkielinen tiivistelmä. Käytä selkeää, ammattimaista suomea ilman anglismeja kun mahdollista. Mainitse konkreettiset luvut ja nimet jos oleellisia.
+            content: `Kirjoita jokaisesta artikkelista 4-5 lauseen suomenkielinen tiivistelmä. Käytä selkeää, ammattimaista suomea ilman anglismeja kun mahdollista. Mainitse konkreettiset luvut ja nimet jos oleellisia. Kirjoita kokonaiset lauseet – älä katkaise tekstiä kesken.
 
 Artikkelit:
 ${articleTexts}
