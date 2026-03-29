@@ -62,6 +62,14 @@ function ScoreRing({ score }: { score: number }) {
 
 function getTopicImage(tags: string[]): string {
   const tagStr = tags.join(" ").toLowerCase();
+  if (tagStr.includes("jääkiekko") || tagStr.includes("hockey") || tagStr.includes("nhl"))
+    return "https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=120&h=80&fit=crop&q=60";
+  if (tagStr.includes("jalkapallo") || tagStr.includes("football") || tagStr.includes("soccer"))
+    return "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=120&h=80&fit=crop&q=60";
+  if (tagStr.includes("f1") || tagStr.includes("formula"))
+    return "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=120&h=80&fit=crop&q=60";
+  if (tagStr.includes("urheilu") || tagStr.includes("sport") || tagStr.includes("liiga"))
+    return "https://images.unsplash.com/photo-1461896836934-bd45ba2724e7?w=120&h=80&fit=crop&q=60";
   if (tagStr.includes("turvallisuus") || tagStr.includes("safety") || tagStr.includes("jailbreak"))
     return "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=120&h=80&fit=crop&q=60";
   if (tagStr.includes("llm") || tagStr.includes("kielimall"))

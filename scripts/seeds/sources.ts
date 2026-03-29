@@ -323,6 +323,101 @@ const sources = [
     category: "tech",
     language: "fi",
   },
+
+  // Urheilu – Suomalaiset
+  {
+    name: "Yle Urheilu",
+    url: "https://yle.fi/urheilu",
+    feed_url: "https://feeds.yle.fi/uutiset/v1/recent.rss?publisherIds=YLE_URHEILU",
+    category: "urheilu",
+    language: "fi",
+  },
+  {
+    name: "IS Urheilu",
+    url: "https://www.is.fi/urheilu",
+    feed_url: "https://www.is.fi/rss/urheilu.xml",
+    category: "urheilu",
+    language: "fi",
+  },
+  {
+    name: "MTV Urheilu",
+    url: "https://www.mtvuutiset.fi/urheilu",
+    feed_url: "https://www.mtvuutiset.fi/api/feed/v2/rss/urheilu",
+    category: "urheilu",
+    language: "fi",
+  },
+  {
+    name: "Urheilulehti",
+    url: "https://www.urheilulehti.fi",
+    feed_url: "https://www.urheilulehti.fi/feed",
+    category: "urheilu",
+    language: "fi",
+  },
+  {
+    name: "Jatkoaika (jääkiekko)",
+    url: "https://www.jatkoaika.com",
+    feed_url: "https://www.jatkoaika.com/rss.xml",
+    category: "urheilu",
+    language: "fi",
+  },
+  {
+    name: "FutisForum2",
+    url: "https://futisforum2.org",
+    feed_url: "https://futisforum2.org/index.php?action=.xml;type=rss",
+    category: "urheilu",
+    language: "fi",
+  },
+
+  // Urheilu – Kansainväliset
+  {
+    name: "ESPN",
+    url: "https://www.espn.com",
+    feed_url: "https://www.espn.com/espn/rss/news",
+    category: "urheilu",
+    language: "en",
+  },
+  {
+    name: "BBC Sport",
+    url: "https://www.bbc.com/sport",
+    feed_url: "https://feeds.bbci.co.uk/sport/rss.xml",
+    category: "urheilu",
+    language: "en",
+  },
+  {
+    name: "The Athletic",
+    url: "https://www.nytimes.com/athletic/",
+    feed_url: "https://www.nytimes.com/athletic/rss/",
+    category: "urheilu",
+    language: "en",
+  },
+  {
+    name: "Sky Sports – Football",
+    url: "https://www.skysports.com/football",
+    feed_url: "https://www.skysports.com/rss/12040",
+    category: "urheilu",
+    language: "en",
+  },
+  {
+    name: "F1 – Formula 1",
+    url: "https://www.formula1.com",
+    feed_url: "https://www.formula1.com/content/fom-website/en/latest/all.xml",
+    category: "urheilu",
+    language: "en",
+  },
+  {
+    name: "NHL News",
+    url: "https://www.nhl.com/news",
+    feed_url: "https://www.nhl.com/rss/news.xml",
+    category: "urheilu",
+    language: "en",
+  },
+  {
+    name: "The Guardian – Sport",
+    url: "https://www.theguardian.com/uk/sport",
+    feed_url: "https://www.theguardian.com/uk/sport/rss",
+    category: "urheilu",
+    language: "en",
+  },
 ];
 
 // Vanhat feed-URL:t jotka pitää poistaa / deaktivoida

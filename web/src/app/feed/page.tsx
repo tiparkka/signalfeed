@@ -102,7 +102,7 @@ export default function FeedPage() {
         </div>
 
         <div className="flex gap-2">
-          {["all", "ai", "tech"].map((cat) => (
+          {["all", "ai", "tech", "urheilu"].map((cat) => (
             <button
               key={cat}
               onClick={() => { setCategory(cat); setPage(0); }}
@@ -112,7 +112,7 @@ export default function FeedPage() {
                   : "bg-surface-dark text-slate-400 border border-surface-light/50 hover:text-white hover:border-brand/30"
               }`}
             >
-              {cat === "all" ? "Kaikki" : cat.toUpperCase()}
+              {cat === "all" ? "Kaikki" : cat === "urheilu" ? "Urheilu" : cat.toUpperCase()}
             </button>
           ))}
         </div>
