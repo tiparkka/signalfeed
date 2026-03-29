@@ -65,19 +65,30 @@ async function curateArticles() {
         messages: [
           {
             role: "user",
-            content: `Olet suomalainen teknologiatoimittaja. Arvioi seuraavat artikkelit asteikolla 1-10 suomalaisen AI/tech-ammattilaisen näkökulmasta.
+            content: `Olet suomalainen uutiskuraattori. Arvioi seuraavat artikkelit asteikolla 1-10 suomalaisen ammattilaisen näkökulmasta. Huomioi artikkelin kategoria pisteytettäessä.
 
 Kriteerit:
 - Uutuusarvo: onko tämä tuore ja uusi tieto?
 - Vaikuttavuus: kuinka merkittävä vaikutus alalla?
 - Suomi-relevanssi: liittyykö Suomeen tai suomalaisiin toimijoihin?
-- Käytännöllisyys: voiko lukija hyödyntää tätä työssään?
+- Käytännöllisyys: voiko lukija hyödyntää tätä?
 
-Pisteytysohje:
+Pisteytysohje per kategoria:
+
+AI/Tech:
 - AI, koneoppiminen, LLM-kehitys: 8-10
-- Merkittävät tech-uutiset (startup-rahoitus, tuotelanseeraukset): 7-9
-- Suomen tech-ekosysteemi: +1 bonus
+- Merkittävät tech-uutiset: 7-9
 - Yleinen teknologia: 5-7
+
+Urheilu:
+- Suomalaisten urheilijoiden/joukkueiden tulokset ja uutiset: 8-10
+- Merkittävät kansainväliset urheilutapahtumat (F1, NHL, jalkapallo): 7-9
+- Suomen liigat ja sarjat: 7-9
+- Siirtomarkkinat ja sopimukset: 6-8
+- Yleinen urheiluuutinen: 5-7
+
+Kaikki kategoriat:
+- Suomi-relevanssi: +1 bonus
 - Ei-relevantti tai clickbait: 1-4
 
 Artikkelit:
